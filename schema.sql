@@ -6,8 +6,10 @@ CREATE TABLE contact (
   description varchar(255)
 );
 
+CREATE TYPE category AS ENUM ('family', 'friends', 'work', 'other');
+
 CREATE TABLE categories (
   id serial PRIMARY KEY,
-  type text,
+  type category NOT NULL,
   contact_id int REFERENCES contact(id)
 );

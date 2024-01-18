@@ -3,9 +3,9 @@
 </h1>
 
 <ul>
-  <% @names.each do |name| %>
+  <% contacts.each do |name| %>
     <li>
-      <a href='/contacts/<%= name %>'>
+      <a href='/contacts/<%= find_contact(name)[:id] %>'>
         <h2><%= name %></h2>
       </a>
     </li>

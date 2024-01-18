@@ -1,10 +1,17 @@
 require 'sinatra'
 require 'sinatra/reloader' 
+require 'sinatra/content_for'
 
 #require_relative 'database_persistance'
 
+
+
 configure do
   @storage = DatabasePersistance.new
+end
+
+def contacts
+ result = @storage.all_contacts 
 end
 
 get '/' do
