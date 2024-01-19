@@ -1,13 +1,20 @@
 require 'sinatra'
-require 'sinatra/reloader'
+require 'pg'
 
 require_relative 'database_persistance'
 
-configure do
-  @storage = DatabasePersistance.new
+configure(:development) do
+  require 'sinatra/reloader'
+  also_reload 'database_persistance.rb'
 end
 
-def load_contact(id)
+configure do
+  enable :sessions
+  also_reload 'database_persistance.rb'
+end
+
+before do
+  @storage = DatabasePersistance.new
 end
 
 get '/' do
