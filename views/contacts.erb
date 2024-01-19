@@ -3,10 +3,10 @@
 </h1>
 
 <ul>
-  <% contacts.each do |name| %>
+  <% @contacts.each do |contact| %>
     <li>
-      <a href='/contacts/<%= find_contact(name)[:id] %>'>
-        <h2><%= name %></h2>
+      <a href="/contacts/<%= contact[:id] %>">
+        <h2><%= contact[:name] %></h2>
       </a>
     </li>
   <% end %>

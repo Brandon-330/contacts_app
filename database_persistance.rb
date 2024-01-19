@@ -19,7 +19,14 @@ class Database
     sql = 'SELECT * FROM contacts'
     result = query(sql)
     result.map do |tuple|
-      { id: tuple['id'].to_i, name: tuple['name'].to_i,  }
+      { 
+        id: tuple['id'].to_i, 
+        name: tuple['name'].to_i, 
+        phone_number: tuple['phone_number'].to_i, 
+        email: tuple['email_address'],
+        description: tuple['description']
+        #category: find_category(tuple[:id].to_i)
+     }
     end
   end
 end

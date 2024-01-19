@@ -1,17 +1,13 @@
 require 'sinatra'
 require 'sinatra/reloader' 
-require 'sinatra/content_for'
 
-#require_relative 'database_persistance'
-
-
+require_relative 'database_persistance'
 
 configure do
   @storage = DatabasePersistance.new
 end
 
-def contacts
- result = @storage.all_contacts 
+def load_contact(id)
 end
 
 get '/' do
@@ -19,11 +15,11 @@ get '/' do
 end
 
 get '/contacts' do
-  @names = ['Vicky', 'Reginald', 'Dora']
+  @contacts = @storage.all_contacts
   erb :contacts
 end
 
 get '/contacts/:id' do
-  @contact = params[:id]
+  id = params[:id].to_i
   erb :contact
 end
