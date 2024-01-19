@@ -1,8 +1,8 @@
 require 'pg'
 
-class Database
+class DatabasePersistance
   def initialize
-    @db = PG.connect(dbname: contacts, user: postgres, password: postgres)
+    @db = PG.connect(dbname: 'phone_contacts', user: 'postgres', password: 'postgres')
   end
 
   def query(statement, *args)

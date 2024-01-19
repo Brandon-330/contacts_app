@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader' 
+require 'sinatra/reloader'
 
 require_relative 'database_persistance'
 
@@ -11,7 +11,7 @@ def load_contact(id)
 end
 
 get '/' do
-  redirect '/home'
+  redirect '/contacts'
 end
 
 get '/contacts' do
