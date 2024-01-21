@@ -1,0 +1,7 @@
+<h1><%= @contact[:name] %></h1>
+<p>Phone number: <%= format_phone_number(@contact[:phone_number]) %></p>
+<p>Email: <%= @contact[:email] %></p>
+<% if @contact[:description] %>
+  <p>Description: <%= @contact[:description] %></p>
+<% end %>
+<p><%= @contact[:name] %> is <%= @contact[:category] %></p>

@@ -13,6 +13,13 @@ configure do
   also_reload 'database_persistance.rb'
 end
 
+helpers do
+  def format_phone_number(number_int)
+    number = number_int.to_s
+    "(#{number[0, 3]})-#{number[3, 3]}-#{number[6, 4]}"
+  end
+end
+
 before do
   @storage = DatabasePersistance.new
 end
@@ -28,5 +35,6 @@ end
 
 get '/contacts/:id' do
   id = params[:id].to_i
+  @contact = @storage.find_contact(id)
   erb :contact
 end

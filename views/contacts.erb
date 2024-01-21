@@ -2,14 +2,18 @@
   Your Contacts
 </h1>
 
+<p>You have <b><%= @contacts.count %> contacts</b></p>
+
 <ul>
   <% @contacts.each do |contact| %>
     <li>
-      <a href="/contacts/<%= contact[:id] %>">
-        <h2><%= contact[:name] %></h2>
-      </a>
-      <p><%= contact[:category] %></p>
-      <p><%= contact[:description] %></p>
+      <div>
+        <a class='contacts' href="/contacts/<%= contact[:id] %>">
+          <h2><%= contact[:name] %></h2>
+        </a>
+        <p class='contacts'><%= contact[:category].capitalize %></p>
+        <p class='contacts'><%= contact[:description] %></p>
+      </div>
     </li>
   <% end %>
 </ul>

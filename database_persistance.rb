@@ -17,6 +17,14 @@ class DatabasePersistance
     sql = 'SELECT * FROM contacts WHERE id = $1'
     result = query(sql, id)
     tuple = result.first
+    {
+      id: tuple['id'].to_i, 
+      name: tuple['name'], 
+      phone_number: tuple['phone_number'].to_i, 
+      email: tuple['email_address'],
+      description: tuple['description'],
+      category: find_category_type(tuple['category_id'].to_i)
+    }
   end
 
   def all_contacts
